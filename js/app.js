@@ -30,11 +30,19 @@ define(['jquery', 'Materialize'], function ($, Materialize) {
 
         $('.subscription').click(function (e) {
             var subscribeButton = e.target;
-            // console.log(e.target.text);
-            if (e.target.text === 'Subscribe')
-                subscribeButton.innerHTML = 'Unsubscribe';
-            else
-                subscribeButton.innerHTML='Subscribe';
+            console.log(subscribeButton.tagName);
+            if (subscribeButton.tagName === 'A') {
+                if (e.target.text === 'Subscribe')
+                    subscribeButton.innerHTML = 'Unsubscribe';
+                else
+                    subscribeButton.innerHTML = 'Subscribe';
+            } else {
+                if (subscribeButton.getAttribute('src') === 'images/pause-blue.png')
+                    subscribeButton.setAttribute('src', 'images/play-blue-2.png')
+                else
+                    subscribeButton.setAttribute('src', 'images/pause-blue.png')
+            }
+
         })
     })
 
