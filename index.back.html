@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +22,7 @@
     <div class="navbar-fixed">
         <nav style="background-color:#4e69a2">
             <div class="nav-wrapper">
-                <a href="/#!/start" class="brand-logo padding-left-10"><img src="images/oracle-white.gif" style="margin-top:14px;margin-left:10px"></a>
+                <a href="index.html" class="brand-logo padding-left-10"><img src="images/oracle-white.gif" style="margin-top:14px;margin-left:10px"></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="search-out">
                         <input class="search-out-text" type="text">
@@ -92,9 +91,57 @@
         <div class="wrapper">
 
             <section id="content">
-                <div data-bind="page:{id:'start', title:'Oracle XNTF',source: 'applications.html'}">
+                <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <h5 class="breadcrumbs-title" style="margin-bottom:20px">Applications</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div data-bind="page:{id:'topics', title:'Oracle XNTF',source: 'topics.html',with:$root.topics}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <ul class="collection">
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle blue">assignment_ind</i>
+                                    <span class="title">Aria People</span>
+                                    <p>First Line
+
+                                    </p>
+
+                                    <a href="topics.html" class="secondary-content button button-border-primary button-rounded waves-effect waves-block waves-cyan">View</a>
+
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle">folder</i>
+                                    <span class="title">Oracle OIM</span>
+                                    <p>Oracle Identity Management
+
+                                    </p>
+                                    <a href="topics.html" class="secondary-content button button-border-primary button-rounded waves-effect waves-block waves-cyan">View</a>
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle green">insert_chart</i>
+                                    <span class="title">Oracle GIS</span>
+                                    <p>Oracle Global information security
+
+                                    </p>
+                                    <a href="topics.html" class="secondary-content"><i class="material-icons">input</i></a>
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle red">play_arrow</i>
+                                    <span class="title">Oracle Taleo</span>
+                                    <p>Oracle recruitment portal
+
+                                    </p>
+                                    <a href="topics.html" class="secondary-content"><i class="material-icons">input</i></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -107,7 +154,7 @@
         <ul>
             <li><a class="waves-effect waves-circle waves-light btn-floating btn-large blue"><i class="material-icons">search</i></a></li>
             <li><a class="waves-effect waves-circle waves-light btn-floating btn-large blue"><i class="mdi-social-notifications"></i></a></li>
-
+            
         </ul>
     </div>
 

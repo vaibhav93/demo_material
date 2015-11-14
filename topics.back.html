@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Notifications</title>
+    <!--    <script src="js/lib/jquery-1.11.3.min.js"></script>-->
+    <!--    <script src="js/materialize.js"></script>-->
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/require.js" data-main="js/main"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/buttons.css">
+
+
+
+    <!--    <script src="js/script.js"></script>-->
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav style="background-color:#4e69a2">
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo padding-left-10"><img src="images/oracle-white.gif" style="margin-top:14px;margin-left:10px"></a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="search-out">
+                        <input class="search-out-text" type="text">
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-block waves-light show-search" href="javascript:void(0);">
+                            <i class="mdi-action-search"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect waves-block waves-light" href="javascript:void(0);">
+                            <i class="mdi-social-notifications"></i>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a id="user-button" class="dropdown-button waves-effect waves-block waves-light" data-activates="user-options">
+                            <i class="mdi-social-person"></i>
+
+                        </a>
+                        <ul id="user-options" class="dropdown-content">
+                            <li><a href="#!">View Profile</a></li>
+                            <li><a href="#!">My topics</a></li>
+                            <li><a href="#!">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="right hide-on-large-only">
+                    <li>
+                        <a id="user-button2" class="dropdown-button waves-effect waves-block waves-light" data-activates="user-options2">
+                            <i class="mdi-social-person"></i>
+                        </a>
+                        <ul id="user-options2" class="dropdown-content">
+                            <li><a href="#!">View Profile</a></li>
+                            <li><a href="#!">My topics</a></li>
+                            <li><a href="#!">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul id="slide-out" class="side-nav fixed">
+                    <li class="bold">
+                        <a class="waves-effect waves-cyan" href="#">
+                            <i class="mdi-social-person"></i> Hi Vaibhav
+                        </a>
+                    </li>
+                    <li class="bold">
+                        <a class="waves-effect waves-cyan" href="#">
+                            <i class="mdi-communication-email"></i> Notifications
+                            <span class="new badge">4</span>
+                        </a>
+                    </li>
+                    <li class="bold">
+                        <a class="waves-effect waves-cyan" href="topics.html">
+                            <i class="mdi-notification-sms"></i> Topics
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="button-collapse padding-left-10"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+
+
+    </div>
+
+    <div id="main">
+        <div class="wrapper">
+
+            <section id="content">
+                <div id="breadcrumbs-wrapper" class=" grey lighten-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <h5 class="breadcrumbs-title" style="margin-bottom:20px">Topics</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <table class="table-responsive striped" style="margin-top:25px">
+                                <thead>
+                                    <tr>
+                                        <th data-field="name">Name</th>
+                                        <th class="hide-on-med-and-down" data-field="desc">Description</th>
+                                        <th data-field="subscribe">Subscription</th>
+                                        <th data-field="view">View</th>
+                                        <th data-field="settings">Settings</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Security</td>
+                                        <td class="hide-on-med-and-down">Account and password related</td>
+                                        <td><a href="#" class="subscription secondary-content button button-border-primary button-rounded waves-effect waves-block waves-cyan hide-on-med-and-down" style="float:left">Subscribe</a>
+                                            <img class="subscription hide-on-large-only" src="images/play-blue-2.png"></td>
+                                        <td><a href="#"><i class="material-icons">input</i></a></td>
+                                        <td><a href="#"><i class="material-icons">settings</i></a></td>
+                                        <tr>
+                                            <td>Job openings</td>
+                                            <td class="hide-on-med-and-down">Internal oracle postitons</td>
+                                            <td><a href="#" class="subscription secondary-content button button-border-primary button-rounded waves-effect waves-block waves-cyan hide-on-med-and-down" style="float:left">Unsubscribe</a>
+                                                <img class="subscription hide-on-large-only" src="images/pause-blue.png">
+                                            </td>
+                                            <td><a href="#"><i class="material-icons">input</i></a></td>
+                                            <td><a href="#"><i class="material-icons">settings</i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maintanance</td>
+                                            <td class="hide-on-med-and-down">Outage related notification</td>
+                                            <td><a href="#" class="subscription secondary-content button button-border-primary button-rounded waves-effect waves-block waves-cyan hide-on-med-and-down" style="float:left">Unsubscribe</a><img class="subscription hide-on-large-only" src="images/pause-blue.png"></td>
+                                            <td><a href="#"><i class="material-icons">input</i></a></td>
+                                            <td><a href="#"><i class="material-icons">settings</i></a></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Maintanance</td>
+                                            <td class="hide-on-med-and-down">Outage related notification</td>
+                                            <td>
+                                                <a href="#" class="subscription secondary-content button button-border-primary button-rounded waves-effect waves-block waves-cyan hide-on-med-and-down" style="float:left">Subscribe</a><img class="hide-on-large-only subscription " src="images/play-blue-2.png"></td>
+                                            <td><a href="#"><i class="material-icons">input</i></a></td>
+                                            <td><a href="#"><i class="material-icons">settings</i></a></td>
+
+                                        </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <div class="fixed-action-btn horizontal click-to-toggle hide-on-large-only" style="bottom: 45px; right: 24px;">
+        <a class="waves-effect waves-circle waves-light btn-floating btn-large red">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+            <li><a class="waves-effect waves-circle waves-light btn-floating btn-large blue"><i class="material-icons">search</i></a></li>
+            <li><a class="waves-effect waves-circle waves-light btn-floating btn-large blue"><i class="mdi-social-notifications"></i></a></li>
+
+        </ul>
+    </div>
+
+
+</body>
+
+</html>
