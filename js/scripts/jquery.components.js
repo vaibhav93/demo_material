@@ -15,7 +15,7 @@ define(['jquery', 'Materialize'], function ($) {
             outDuration: 225,
             constrain_width: false,
             hover: false, // Activate on click
-            alignment: 'left',
+            alignment: 'right',
             gutter: 0, // Spacing from edge
             belowOrigin: true // Displays dropdown below the button
         });
