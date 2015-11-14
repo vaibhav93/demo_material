@@ -27,6 +27,10 @@ define(['jquery', 'Materialize'], function ($) {
             closeOnClick: false
         });
 
+
+    })
+
+    window.topicPageComponents = function () {
         $('.subscription').click(function (e) {
             var subscribeButton = e.target;
             console.log(subscribeButton.tagName);
@@ -43,6 +47,6 @@ define(['jquery', 'Materialize'], function ($) {
             }
 
         })
-    })
+    }
 
 })

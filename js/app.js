@@ -6,7 +6,11 @@ define(['jquery', 'knockout', 'Materialize', 'pager', '../scripts/jquery.compone
         },
         demoText: ko.observable('Demo Text'),
         topics:{
-            demoText2 : 'yoloo'
+            demoText2 : 'yoloo',
+            pageLoaded : function(){
+                console.log('topics loaded');
+                window.topicPageComponents();
+            }
         }
     };
     pager.Href.hash = '#!/';

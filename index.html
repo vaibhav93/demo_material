@@ -99,7 +99,7 @@
             <section id="content">
                 <div data-bind="page:{id:'start', title:'Oracle XNTF',source: 'applications.html'}">
                 </div>
-                <div data-bind="page:{id:'topics', title:'Oracle XNTF',source: 'topics.html',with:$root.topics}">
+                <div data-bind="page:{id:'topics', title:'Oracle XNTF',sourceLoaded: topics.pageLoaded,source: 'topics.html',with:$root.topics}">
                 </div>
             </section>
 
