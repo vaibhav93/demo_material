@@ -31,18 +31,20 @@ define(['jquery', 'knockout', 'Materialize', 'pager', '../scripts/jquery.compone
                 desc: ko.observable('')
             },
             submitApp: function () {
-                console.log(viewModel.applications.newApp);
-                viewModel.applications.appsList.push({
-                    name: viewModel.applications.newApp.name(),
-                    desc: viewModel.applications.newApp.desc(),
-                    icon: 'assignment_ind',
-                    color: 'blue'
-                });
-                setTimeout(function () {
-                    viewModel.applications.newApp.name('');
-                    viewModel.applications.newApp.desc('');
-                    $('#app-form').slideUp();
-                }, 1000)
+                //console.log(viewModel.applications.newApp);
+                if (viewModel.applications.newApp.name().length > 0 && viewModel.applications.newApp.desc().length > 0) {
+                    viewModel.applications.appsList.push({
+                        name: viewModel.applications.newApp.name(),
+                        desc: viewModel.applications.newApp.desc(),
+                        icon: 'assignment_ind',
+                        color: 'blue'
+                    });
+                    setTimeout(function () {
+                        viewModel.applications.newApp.name('');
+                        viewModel.applications.newApp.desc('');
+                        $('#app-form').slideUp();
+                    }, 1000)
+                }
 
             },
             appsList: ko.observableArray([
