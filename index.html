@@ -39,10 +39,10 @@
 
                         </a>
                     </li>
-                    
+
                     <li>
-                        <a id="user-button" class="dropdown-button waves-effect waves-block waves-light" data-activates="user-options">   
-                          
+                        <a id="user-button" class="dropdown-button waves-effect waves-block waves-light" data-activates="user-options">
+
 
                             <div class="box">
 
@@ -50,7 +50,7 @@
                                 <div class="inside" data-bind="text: user.email"></div>
                             </div>
 
-                         
+
 
                         </a>
                         <ul id="user-options" class="dropdown-content">
@@ -67,22 +67,16 @@
                             <i class="mdi-social-person"></i>
                         </a>
                         <ul id="user-options2" class="dropdown-content">
-                            <li><a href="#!">View Profile</a></li>
+                            <li><a href="#!/topics">View Profile</a></li>
                             <li><a href="#!">My topics</a></li>
                             <li><a href="#!">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
-                <ul id="slide-out" class="side-nav fixed">
+                <ul id="slide-out" class="side-nav fixed"  data-bind="foreach : sideMenu">
                     <li class="bold">
-                        <a class="waves-effect waves-cyan" href="#">
-                            <i class="mdi-communication-email"></i> Notifications
-                            <span class="new badge">4</span>
-                        </a>
-                    </li>
-                    <li class="bold">
-                        <a class="waves-effect waves-cyan" href="topics.html">
-                            <i class="mdi-notification-sms"></i> Topics
+                        <a class="waves-effect waves-cyan" data-bind="attr : {href:href}">
+                            <i data-bind="css: iconClass"></i><span data-bind="text: name"></span>
                         </a>
                     </li>
                 </ul>
@@ -97,12 +91,11 @@
         <div class="wrapper">
 
             <section id="content">
-                <div data-bind="page:{id:'start', title:'Oracle XNTF',source: 'applications.html'}">
+                <div data-bind="page:{id:'start', title:'Oracle XNTF',source: 'applications.html',with:$root.applications}">
                 </div>
                 <div data-bind="page:{id:'topics', title:'Oracle XNTF',sourceLoaded: topics.pageLoaded,source: 'topics.html',with:$root.topics}">
                 </div>
             </section>
-
         </div>
     </div>
     <div class="fixed-action-btn horizontal click-to-toggle hide-on-large-only" style="bottom: 45px; right: 24px;">
