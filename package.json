@@ -1,0 +1,23 @@
+{
+  "name": "demo_ui_materialize",
+  "version": "1.0.0",
+  "description": "Oracle XNTF frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaibhav93/demo_material.git"
+  },
+  "author": "Vaibhav Bansal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vaibhav93/demo_material/issues"
+  },
+  "homepage": "https://github.com/vaibhav93/demo_material#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.7"
+  }
+}

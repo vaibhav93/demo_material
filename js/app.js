@@ -12,7 +12,7 @@ define(['jquery', 'knockout', 'Materialize', 'pager', '../scripts/jquery.compone
         },
         topics: {
             pageLoaded: function () {
-                console.log('topics loaded');
+                //console.log('topics loaded');
                 window.topicPageComponents();
 
             }
