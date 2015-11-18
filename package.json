@@ -1,7 +1,7 @@
 {
   "name": "demo_ui_materialize",
   "version": "1.0.0",
-  "description": "Oracle XNTF frontend",
+  "description": "XNTF frontend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +18,15 @@
   "homepage": "https://github.com/vaibhav93/demo_material#readme",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-util": "^3.0.7"
+    "gulp-jshint": "^1.12.0",
+    "gulp-requirejs": "^0.1.3",
+    "gulp-requirejs-optimize": "^0.3.0",
+    "gulp-util": "^3.0.7",
+    "jshint-stylish": "^2.1.0"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.1",
+    "requirejs": "^2.1.20"
   }
 }

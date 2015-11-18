@@ -28,7 +28,7 @@ define(['jquery', 'Materialize'], function ($) {
         });
 
 
-    })
+    });
 
     window.topicPageComponents = function () {
         $('.subscription').click(function (e) {
@@ -41,12 +41,12 @@ define(['jquery', 'Materialize'], function ($) {
                     subscribeButton.innerHTML = 'Subscribe';
             } else {
                 if (subscribeButton.getAttribute('src') === 'images/pause-blue.png')
-                    subscribeButton.setAttribute('src', 'images/play-blue-2.png')
+                    subscribeButton.setAttribute('src', 'images/play-blue-2.png');
                 else
-                    subscribeButton.setAttribute('src', 'images/pause-blue.png')
+                    subscribeButton.setAttribute('src', 'images/pause-blue.png');
             }
 
-        })
-    }
+        });
+    };
 
-})
+});

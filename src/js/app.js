@@ -1,4 +1,4 @@
-define(['jquery', 'knockout', 'Materialize', 'pager', '../scripts/jquery.components'], function ($, ko, Materialize, pager) {
+define(['jquery', 'knockout', 'Materialize', 'pager', 'component'], function ($, ko, Materialize, pager) {
 
     var viewModel = {
         sideMenu: ko.observableArray(),
@@ -19,9 +19,9 @@ define(['jquery', 'knockout', 'Materialize', 'pager', '../scripts/jquery.compone
         },
         applications: {
             showNewAppForm: function () {
-                var appForm = $('#app-form')
+                var appForm = $('#app-form');
                 if (appForm.is(":hidden")) {
-                    appForm.slideDown('slow')
+                    appForm.slideDown('slow');
                 } else {
                     appForm.slideUp();
                 }
@@ -43,7 +43,7 @@ define(['jquery', 'knockout', 'Materialize', 'pager', '../scripts/jquery.compone
                         viewModel.applications.newApp.name('');
                         viewModel.applications.newApp.desc('');
                         $('#app-form').slideUp();
-                    }, 1000)
+                    }, 1000);
                 }
 
             },
@@ -87,4 +87,4 @@ define(['jquery', 'knockout', 'Materialize', 'pager', '../scripts/jquery.compone
     pager.start();
 
 
-})
+});
