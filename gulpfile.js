@@ -5,7 +5,14 @@ var gulp = require('gulp'),
     minifyCSS = require('gulp-minify-css');
 
 //default task
-gulp.task('default', ['watchJS','watchCSS','scripts']);
+gulp.task('default', ['watchJS','watchCSS','watchHTML','moveIMG','scripts']);
+
+
+
+//watchJS
+gulp.task('watchJS', function () {
+    gulp.watch(['src/js/scripts/*.js', 'src/js/*.js'], ['jshint']);
+});
 
 //jshint task
 gulp.task('jshint', function () {
@@ -14,15 +21,10 @@ gulp.task('jshint', function () {
         .pipe(jshint.reporter('jshint-stylish'));
 });
 
-//watchJS
-gulp.task('watchJS', function () {
-    gulp.watch(['src/js/scripts/*.js', 'src/js/*.js'], ['jshint']);
-})
-
 //watchCSS
 gulp.task('watchCSS', function () {
     gulp.watch(['src/css/*.css'], ['minifyCSS']);
-})
+});
 
 //minify CSS
 gulp.task('minifyCSS',function(){
@@ -31,6 +33,28 @@ gulp.task('minifyCSS',function(){
     .pipe(concat('style.min.css'))
     .pipe(gulp.dest('dist/css'));
 });
+
+//watchHTML
+gulp.task('watchHTML', function () {
+    gulp.watch(['src/*.html'], ['moveHTML']);
+});
+
+//moveHTML
+gulp.task('moveHTML',function(){
+    return gulp.src('src/*.html')
+    .pipe(gulp.dest('dist/'))
+});
+
+//watchIMG
+gulp.task('watchIMG', function () {
+    gulp.watch(['src/images/*.*'], ['moveIMG']);
+});
+
+//moveHTML
+gulp.task('moveIMG',function(){
+    return gulp.src('src/images/*.*')
+    .pipe(gulp.dest('dist/images'))
+})
 
 //r.js requireJS optimize
 gulp.task('scripts', function () {
