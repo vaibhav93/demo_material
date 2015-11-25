@@ -18,19 +18,19 @@
                 <form class="col s12 padding-top-10">
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="app_name" type="text" class="validate" data-bind="textInput: newApp.name">
-                            <label for="app_name">Application name</label>
+                            <input id="app_name" type="text" class="validate" required="" aria-required="true" data-bind="textInput: newApp.name">
+                            <label for="app_name" data-error="Required">Application name</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="app_desc" type="text" class="validate" data-bind="textInput: newApp.desc">
+                            <input id="app_desc" type="text" class="validate" required="" aria-required="true" data-bind="textInput: newApp.desc">
                             <label for="app_desc">Description</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <a class="waves-effect waves-light btn" data-bind="click: submitApp">Submit</a>
+                            <button class="waves-effect waves-light btn" data-bind="click: submitApp" type="submit" name="action">Submit</button>
                         </div>
                     </div>
                 </form>

@@ -1,20 +1,33 @@
 requirejs.config({
     baseUrl: 'js/lib',
     paths: {
-        jquery:'jquery',
+        jquery: 'jquery',
         knockout: 'knockout-3.3.0',
-        Materialize: 'materialize.0.97.2',
+        Materialize: 'materialize.amd',
         app: '../app',
         hammerjs: 'hammerjs',
-        velocity: 'velocity.min',
         jqueryHammer: 'jquery.hammer',
-        pager:'pager.min',
-        test:'test',
-        component:'../scripts/jquery.components'
+        pager: 'pager.min',
+        test: 'test',
+        jquerymock:'jquery.mockjax.min',
+        dropdown: 'Materialize/dropdown',
+	kovalidation:'knockout.validation.min',
+        sideNav: 'Materialize/sideNav',
+        component: '../scripts/jquery.components',
+        velocity: 'Materialize/velocity.min',
+        application: '../viewModels/application',
+        MaterializeDeps: 'Materialize.deps',
+        jqueryEasing:'Materialize/jquery.easing.1.3',
+        materialBox:'Materialize/materialbox',     
     },
     shim: {
-        'Materialize': ['jquery','jqueryHammer']
+        'Materialize': ['MaterializeDeps'],
+        'jquerymock'  : ["jquery"],
+	'kovalidation':{
+		deps:['knockout']	
+	}	
     }
+
 });
 
 requirejs(['app'], function () {

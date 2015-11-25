@@ -1,0 +1,19 @@
+{
+    "menu": [
+        {
+            "name": "Notifications",
+            "iconClass": "mdi-communication-email",
+            "href": "#!/start"
+        },
+        {
+            "name": "Topics",
+            "iconClass": "mdi-notification-sms",
+            "href": "#!/topics"
+        },
+        {
+            "name": "Manage Key-Pairs",
+            "iconClass": "mdi-communication-vpn-key",
+            "href": "#!/start"
+        }
+    ]
+}

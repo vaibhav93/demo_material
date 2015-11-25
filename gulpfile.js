@@ -2,21 +2,30 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     rjs = require('requirejs'),
     concat = require('gulp-concat'),
+    connect = require('gulp-connect'),
     minifyCSS = require('gulp-minify-css');
 
 //default task
-gulp.task('default', ['watchJS','watchCSS','watchHTML','moveIMG','scripts']);
+gulp.task('default', ['server', 'watchJS', 'watchCSS', 'watchHTML', 'moveIMG', 'scripts']);
 
 
 
 //watchJS
 gulp.task('watchJS', function () {
-    gulp.watch(['src/js/scripts/*.js', 'src/js/*.js'], ['jshint']);
+    gulp.watch(['src/js/scripts/*.js', 'src/js/*.js', 'src/js/viewModels/*.js'], ['jshint', 'scripts']);
+});
+
+//conenct server
+gulp.task('server', function () {
+    connect.server({
+        root: 'dist',
+        livereload: true
+    });
 });
 
 //jshint task
 gulp.task('jshint', function () {
-    return gulp.src(['src/js/scripts/*.js', 'src/js/*.js'])
+    return gulp.src(['src/js/scripts/*.js', 'src/js/*.js','src/js/viewModels/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -27,22 +36,27 @@ gulp.task('watchCSS', function () {
 });
 
 //minify CSS
-gulp.task('minifyCSS',function(){
+gulp.task('minifyCSS', function () {
     return gulp.src('src/css/*.css')
-    .pipe(minifyCSS())
-    .pipe(concat('style.min.css'))
-    .pipe(gulp.dest('dist/css'));
+        .pipe(minifyCSS())
+        .pipe(concat('style.min.css'))
+        .pipe(gulp.dest('dist/css'))
+        .pipe(connect.reload());
 });
 
 //watchHTML
 gulp.task('watchHTML', function () {
-    gulp.watch(['src/*.html'], ['moveHTML']);
+    gulp.watch(['src/*.html','src/templates/*.html'], ['moveHTML']);
 });
 
 //moveHTML
-gulp.task('moveHTML',function(){
-    return gulp.src('src/*.html')
-    .pipe(gulp.dest('dist/'))
+gulp.task('moveHTML', function () {
+        gulp.src('src/*.html')
+        .pipe(gulp.dest('dist/'))
+        .pipe(connect.reload());
+	gulp.src('src/templates/*.html')
+	.pipe(gulp.dest('dist/templates'))
+	.pipe(connect.reload());
 });
 
 //watchIMG
@@ -51,9 +65,10 @@ gulp.task('watchIMG', function () {
 });
 
 //moveHTML
-gulp.task('moveIMG',function(){
+gulp.task('moveIMG', function () {
     return gulp.src('src/images/*.*')
-    .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest('dist/images'))
+        .pipe(connect.reload());
 })
 
 //r.js requireJS optimize
@@ -65,12 +80,24 @@ gulp.task('scripts', function () {
             knockout: 'lib/knockout-3.3.0',
             Materialize: 'empty:',
             app: 'app',
-            //hammerjs: 'lib/hammerjs',
+            hammerjs: 'empty:',
+            jquerymock: 'lib/jquery.mockjax.min',
             jqueryHammer: 'lib/jquery.hammer',
             pager: 'lib/pager.min',
-            component: 'scripts/jquery.components'
+	    kovalidation:'lib/knockout.validation.min',
+            component: 'scripts/jquery.components',
+            dropdown: 'lib/Materialize/dropdown',
+            application: 'viewModels/application',
+            topics: 'viewModels/topics',
+            sideNav: 'lib/Materialize/sideNav',
+            velocity: 'lib/Materialize/velocity.min',
+            jqueryEasing: 'lib/Materialize/jquery.easing.1.3',
+            materialBox: 'lib/Materialize/materialbox',
+            MaterializeDeps: 'lib/Materialize.deps'           
         },
+	wrapShim:true,
         name: 'main',
+        include: ["application", "topics", "MaterializeDeps"],
         out: 'dist/js/main-built.js',
         optimize: 'none'
 
@@ -80,4 +107,6 @@ gulp.task('scripts', function () {
     }, function (err) {
         console.log(err);
     })
+    connect.reload();
+
 });

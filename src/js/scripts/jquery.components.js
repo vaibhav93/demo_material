@@ -1,4 +1,4 @@
-define(['jquery', 'Materialize'], function ($) {
+define(['jquery', 'Materialize', 'jquerymock'], function ($) {
     $(document).ready(function () {
 
         //search
@@ -10,15 +10,17 @@ define(['jquery', 'Materialize'], function ($) {
         Waves.displayEffect();
 
         //user dropdown button
-        $('.dropdown-button').dropdown({
-            inDuration: 300,
-            outDuration: 225,
-            constrain_width: false,
-            hover: false, // Activate on click
-            alignment: 'right',
-            gutter: 0, // Spacing from edge
-            belowOrigin: true // Displays dropdown below the button
-        });
+        setTimeout(function () {
+            $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 500,
+                constrain_width: false,
+                hover: false, // Activate on click
+                alignment: 'right',
+                gutter: 0, // Spacing from edge
+                belowOrigin: true // Displays dropdown below the button
+            });
+        }, 1000);
 
         //sidebar
         $('.button-collapse').sideNav({
@@ -28,6 +30,24 @@ define(['jquery', 'Materialize'], function ($) {
         });
 
 
+
+    });
+    //mocking api call
+    $.mockjax({
+        url: "/api/sidemenu/usr",
+        proxy: 'mocks/sidemenu/sidemenu-usr.json'
+    });
+    $.mockjax({
+        url: "/api/sidemenu/sa",
+        proxy: 'mocks/sidemenu/sidemenu-sa.json'
+    });
+    $.mockjax({
+        url: "/api/sidemenu/aa",
+        proxy: 'mocks/sidemenu/sidemenu-aa.json'
+    });
+    $.mockjax({
+        url: "/api/applications",
+        proxy: 'mocks/applications/list.json'
     });
 
     window.topicPageComponents = function () {

@@ -7,10 +7,12 @@
     <title>Custom Notifications</title>
     <!--    <script src="js/lib/jquery-1.11.3.min.js"></script>-->
     <!--    <script src="js/materialize.js"></script>-->
+    <!--    <link rel="stylesheet" href="css/materialize.css">-->
+    <link rel="stylesheet" href="css/style.min.css">
     <script src="js/lib/require.js" data-main="js/main-built"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.min.css">
+    <!--    <link rel="stylesheet" href="css/buttons.css">-->
 
 
 
@@ -37,24 +39,46 @@
 
                         </a>
                     </li>
-
+                    <li>
+                        <a class="dropdown-button waves-effect waves-block waves-light" data-activates="role-options">
+                            <i class="mdi-action-settings"></i>
+                        </a>
+                        <ul id="role-options" class="dropdown-content">
+                            <form id="role-select" action="#">
+                                <li>
+                                    <a href="#!/start">
+                                        <input name="group1" type="radio" id="test1" value="sa" data-bind="checked: role" />
+                                        <label for="test1">Org Admin</label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#!/start">
+                                        <input name="group1" type="radio" id="test2" value="aa" data-bind="checked: role"/>
+                                        <label for="test2">App admin</label>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#!/start">
+                                        <input name="group1" type="radio" id="test3" value="usr" data-bind="checked: role"/>
+                                        <label for="test3">User</label>
+                                    </a>
+                                </li>
+                            </form>
+                        </ul>
+                    </li>
                     <li>
                         <a id="user-button" class="dropdown-button waves-effect waves-block waves-light" data-activates="user-options">
-
-
                             <div class="box">
 
                                 <i class="mdi-social-person" style="position:relative;float:left"></i>
                                 <div class="inside" data-bind="text: user.email"></div>
                             </div>
-
-
-
                         </a>
                         <ul id="user-options" class="dropdown-content">
-                            <li><a href="#!">View Profile</a></li>
-                            <li><a href="#!">My topics</a></li>
-                            <li><a href="#!">Logout</a></li>
+                            <li><a href="#!/start">View Profile</a></li>
+                            <li><a href="#!/start">My topics</a></li>
+                            <li><a href="#!/start">Logout</a></li>
+
                         </ul>
                     </li>
 
@@ -65,13 +89,13 @@
                             <i class="mdi-social-person"></i>
                         </a>
                         <ul id="user-options2" class="dropdown-content">
-                            <li><a href="#!/topics">View Profile</a></li>
-                            <li><a href="#!">My topics</a></li>
-                            <li><a href="#!">Logout</a></li>
+                            <li><a href="#!/start">View Profile</a></li>
+                            <li><a href="#!/start">My topics</a></li>
+                            <li><a href="#!/start">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
-                <ul id="slide-out" class="side-nav fixed"  data-bind="foreach : sideMenu">
+                <ul id="slide-out" class="side-nav fixed" data-bind="foreach : sideMenu">
                     <li class="bold">
                         <a class="waves-effect waves-cyan" data-bind="attr : {href:href}">
                             <i data-bind="css: iconClass"></i><span data-bind="text: name"></span>
@@ -89,9 +113,9 @@
         <div class="wrapper">
 
             <section id="content">
-                <div data-bind="page:{id:'start', title:'Oracle XNTF',source: 'applications.html',with:$root.applications}">
+                <div data-bind="page:{id:'start', title:'Oracle XNTF',sourceOnShow: 'templates/applications.html',withOnShow:app.requireVM('application'),afterShow:app.pageLoaded}">
                 </div>
-                <div data-bind="page:{id:'topics', title:'Oracle XNTF',sourceLoaded: topics.pageLoaded,source: 'topics.html',with:$root.topics}">
+                <div data-bind="page:{id:'topics', title:'Oracle XNTF',sourceOnShow: 'templates/topics.html',withOnShow:app.requireVM('topics'),afterShow:app.pageLoaded}">
                 </div>
             </section>
         </div>

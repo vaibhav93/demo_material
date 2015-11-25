@@ -1,0 +1,19 @@
+{
+    "menu": [
+        {
+            "name": "Applications",
+            "iconClass": "mdi-device-dvr",
+            "href": "#!/start"
+        },
+        {
+            "name": "Administrators",
+            "iconClass": "mdi-action-account-circle",
+            "href": "#!/topics"
+        },
+        {
+            "name": "Organization",
+            "iconClass": "mdi-action-settings",
+            "href": "#!/start"
+        }
+    ]
+}

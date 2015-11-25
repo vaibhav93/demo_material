@@ -1,0 +1,28 @@
+{
+    "apps":[
+            {
+                "name": "Aria People",
+                "desc": "Oracle employee repository",
+                "icon": "assignment_ind",
+                "color": "blue"
+                },
+            {
+                "name": "Oracle OIM",
+                "desc": "Oracle Identity Management",
+                "icon": "folder",
+                "color": ""
+                },
+            {
+                "name": "Oracle GIS",
+                "desc": "Oracle Global information security",
+                "icon": "insert_chart",
+                "color": "green"
+                },
+            {
+                "name": "Oracle Taleo",
+                "desc": "Oracle recruitment portal",
+                "icon": "play_arrow",
+                "color": "red"
+                }
+            ]
+}
