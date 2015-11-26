@@ -11,29 +11,31 @@
     <div class="row">
         <div class="col s12 m12 l12">
             <!-- add new app-->
-            <div class="padding-top-10">
-                <a class="waves-effect waves-light btn" data-bind="click: showNewAppForm">Create New</a>
-            </div>
-            <div id="app-form" class="row">
-                <form class="col s12 padding-top-10">
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <input id="app_name" type="text" class="validate" required="" aria-required="true" data-bind="textInput: newApp.name">
-                            <label for="app_name" data-error="Required">Application name</label>
+            <div data-bind="if: $root.role()=='sa'">
+                <div class="padding-top-10">
+                    <a class="waves-effect waves-light btn" data-bind="click: showNewAppForm">Create New</a>
+                </div>
+                <div id="app-form" class="row">
+                    <form class="col s12 padding-top-10">
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input id="app_name" type="text" class="validate" required="" aria-required="true" data-bind="textInput: newApp.name">
+                                <label for="app_name" data-error="Required">Application name</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m6">
-                            <input id="app_desc" type="text" class="validate" required="" aria-required="true" data-bind="textInput: newApp.desc">
-                            <label for="app_desc">Description</label>
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input id="app_desc" type="text" class="validate" required="" aria-required="true" data-bind="textInput: newApp.desc">
+                                <label for="app_desc">Description</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <button class="waves-effect waves-light btn" data-bind="click: submitApp" type="submit" name="action">Submit</button>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="waves-effect waves-light btn" data-bind="click: submitApp" type="submit" name="action">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
             <!-- end add new-->
             <!-- application list-->
@@ -43,8 +45,12 @@
                     <span class="title" data-bind="text: name"></span>
                     <p data-bind="text: desc">
                     </p>
-
-                    <a href="#!/topics" class="secondary-content"><i class="material-icons">input</i></a>
+                    <div data-bind="if: $root.role()!='sa'">
+                        <a href="#!/topics" class="secondary-content"><i class="material-icons">input</i></a>
+                    </div>
+                    <div data-bind="if: $root.role()=='sa'">
+                        <a data-bind="page-href:{path:'../manage',params:{appid:id}}" class="secondary-content"><i class="material-icons">input</i></a>
+                    </div>
                 </li>
             </ul>
 

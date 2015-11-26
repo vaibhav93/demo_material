@@ -1771,6 +1771,10 @@ define('component',['jquery', 'Materialize', 'jquerymock'], function ($) {
         url: "/api/applications",
         proxy: 'mocks/applications/list.json'
     });
+    $.mockjax({
+        url: "/api/application/*",
+        proxy: 'mocks/applications/demoapp.json'
+    });
 
     window.topicPageComponents = function () {
         $('.subscription').click(function (e) {
@@ -1882,6 +1886,7 @@ requirejs.config({
         component: '../scripts/jquery.components',
         velocity: 'Materialize/velocity.min',
         application: '../viewModels/application',
+        manageApp: '../viewModels/sa/manage.application',
         MaterializeDeps: 'Materialize.deps',
         jqueryEasing:'Materialize/jquery.easing.1.3',
         materialBox:'Materialize/materialbox',     
@@ -1957,6 +1962,24 @@ define('topics',['knockout', 'jquery'], function (ko, $) {
             //console.log('topics loaded');
             window.topicPageComponents();
 
+        };
+    }
+    return {
+        getVM: function () {
+            return new viewModel();
+        }
+    };
+});
+define('manageApp',['knockout', 'jquery'], function (ko, $) {
+    function viewModel() {
+        var self = this;
+        self.appid = ko.observable();
+        self.app = ko.observable({});
+        self.viewModelLoaded = function () {
+            //get data for this application
+            $.getJSON('/api/application/'+self.appid, function (data) {
+                self.app(data);
+            });
         };
     }
     return {

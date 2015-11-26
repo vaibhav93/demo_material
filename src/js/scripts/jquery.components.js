@@ -49,6 +49,10 @@ define(['jquery', 'Materialize', 'jquerymock'], function ($) {
         url: "/api/applications",
         proxy: 'mocks/applications/list.json'
     });
+    $.mockjax({
+        url: "/api/application/*",
+        proxy: 'mocks/applications/demoapp.json'
+    });
 
     window.topicPageComponents = function () {
         $('.subscription').click(function (e) {

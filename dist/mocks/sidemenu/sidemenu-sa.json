@@ -3,17 +3,17 @@
         {
             "name": "Applications",
             "iconClass": "mdi-device-dvr",
-            "href": "#!/start"
+            "href": "#!/applications"
         },
         {
             "name": "Administrators",
             "iconClass": "mdi-action-account-circle",
-            "href": "#!/topics"
+            "href": "#!/applications"
         },
         {
             "name": "Organization",
             "iconClass": "mdi-action-settings",
-            "href": "#!/start"
+            "href": "#!/applications"
         }
     ]
 }

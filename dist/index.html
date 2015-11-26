@@ -23,7 +23,7 @@
     <div class="navbar-fixed">
         <nav style="background-color:#4e69a2">
             <div class="nav-wrapper">
-                <a href="/#!/start" class="brand-logo padding-left-10"><img src="images/oracle-white.gif" style="margin-top:14px;margin-left:10px"></a>
+                <a href="/#!/applications" class="brand-logo padding-left-10"><img src="images/oracle-white.gif" style="margin-top:14px;margin-left:10px"></a>
                 <ul class="right hide-on-med-and-down">
                     <li class="search-out">
                         <input class="search-out-text" type="text">
@@ -46,20 +46,23 @@
                         <ul id="role-options" class="dropdown-content">
                             <form id="role-select" action="#">
                                 <li>
-                                    <a href="#!/start">
+                                    <!-- sa = super admin or Organization admin-->
+                                    <a href="#!/applications">
                                         <input name="group1" type="radio" id="test1" value="sa" data-bind="checked: role" />
                                         <label for="test1">Org Admin</label>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#!/start">
-                                        <input name="group1" type="radio" id="test2" value="aa" data-bind="checked: role"/>
+                                    <!-- aa = application admin-->
+                                    <a href="#!/applications">
+                                        <input name="group1" type="radio" id="test2" value="aa" data-bind="checked: role" />
                                         <label for="test2">App admin</label>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#!/start">
-                                        <input name="group1" type="radio" id="test3" value="usr" data-bind="checked: role"/>
+                                    <!-- usr = user -->
+                                    <a href="#!/applications">
+                                        <input name="group1" type="radio" id="test3" value="usr" data-bind="checked: role" />
                                         <label for="test3">User</label>
                                     </a>
                                 </li>
@@ -75,9 +78,9 @@
                             </div>
                         </a>
                         <ul id="user-options" class="dropdown-content">
-                            <li><a href="#!/start">View Profile</a></li>
-                            <li><a href="#!/start">My topics</a></li>
-                            <li><a href="#!/start">Logout</a></li>
+                            <li><a href="#!/applications">View Profile</a></li>
+                            <li><a href="#!/applications">My topics</a></li>
+                            <li><a href="#!/applications">Logout</a></li>
 
                         </ul>
                     </li>
@@ -89,9 +92,9 @@
                             <i class="mdi-social-person"></i>
                         </a>
                         <ul id="user-options2" class="dropdown-content">
-                            <li><a href="#!/start">View Profile</a></li>
-                            <li><a href="#!/start">My topics</a></li>
-                            <li><a href="#!/start">Logout</a></li>
+                            <li><a href="#!/applications">View Profile</a></li>
+                            <li><a href="#!/applications">My topics</a></li>
+                            <li><a href="#!/applications">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -113,10 +116,21 @@
         <div class="wrapper">
 
             <section id="content">
-                <div data-bind="page:{id:'start', title:'Oracle XNTF',sourceOnShow: 'templates/applications.html',withOnShow:app.requireVM('application'),afterShow:app.pageLoaded}">
+                <!-- Main applications-->
+                <div data-bind="page:{id:'applications'}">
+                   
+                    <!-- List all applications-->
+                    <div data-bind="page:{id:'',role:'start', title:'Oracle XNTF',sourceOnShow: 'templates/applications.html',withOnShow:app.requireVM('application'),afterShow:app.pageLoaded}"></div>
+                    
+                    <!-- Manage applications. Role : SA-->
+                    <div data-bind="page:{id:'manage',params:['appid'], title:'Oracle XNTF',sourceOnShow: 'templates/sa/manage-application.html',withOnShow:app.requireVM('manageApp'),afterShow:app.pageLoaded}">
+                    </div>
                 </div>
+
+                <!-- List all topics. Role : AA,USR -->
                 <div data-bind="page:{id:'topics', title:'Oracle XNTF',sourceOnShow: 'templates/topics.html',withOnShow:app.requireVM('topics'),afterShow:app.pageLoaded}">
                 </div>
+
             </section>
         </div>
     </div>

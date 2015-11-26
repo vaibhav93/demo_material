@@ -16,6 +16,7 @@ requirejs.config({
         component: '../scripts/jquery.components',
         velocity: 'Materialize/velocity.min',
         application: '../viewModels/application',
+        manageApp: '../viewModels/sa/manage.application',
         MaterializeDeps: 'Materialize.deps',
         jqueryEasing:'Materialize/jquery.easing.1.3',
         materialBox:'Materialize/materialbox',     

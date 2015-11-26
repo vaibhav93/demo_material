@@ -3,7 +3,7 @@
         {
             "name": "Notifications",
             "iconClass": "mdi-communication-email",
-            "href": "#!/start"
+            "href": "#!/applications"
         },
         {
             "name": "Topics",
@@ -13,7 +13,7 @@
         {
             "name": "Manage Key-Pairs",
             "iconClass": "mdi-communication-vpn-key",
-            "href": "#!/start"
+            "href": "#!/applications"
         }
     ]
 }

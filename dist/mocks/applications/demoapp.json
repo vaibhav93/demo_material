@@ -1,0 +1,16 @@
+{
+    "name" : "Oracle ERP",
+    "desc" : "Enterprise resource planning tool",
+    "status" : true,
+    "admins":[
+        {
+            "email":"abhishek.parida@oracle.com"
+        },
+        {
+            "email":"gautham.swaroop@oracle.com"
+        },
+        {
+            "email":"vaibhav.bansal@gmail.com"
+        }
+    ]
+}

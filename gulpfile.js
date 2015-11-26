@@ -12,7 +12,7 @@ gulp.task('default', ['server', 'watchJS', 'watchCSS', 'watchHTML', 'moveIMG', '
 
 //watchJS
 gulp.task('watchJS', function () {
-    gulp.watch(['src/js/scripts/*.js', 'src/js/*.js', 'src/js/viewModels/*.js'], ['jshint', 'scripts']);
+    gulp.watch(['src/js/scripts/*.js', 'src/js/*.js', 'src/js/viewModels/**/*.js'], ['jshint', 'scripts']);
 });
 
 //conenct server
@@ -25,7 +25,7 @@ gulp.task('server', function () {
 
 //jshint task
 gulp.task('jshint', function () {
-    return gulp.src(['src/js/scripts/*.js', 'src/js/*.js','src/js/viewModels/*.js'])
+    return gulp.src(['src/js/scripts/*.js', 'src/js/*.js','src/js/viewModels/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -46,16 +46,19 @@ gulp.task('minifyCSS', function () {
 
 //watchHTML
 gulp.task('watchHTML', function () {
-    gulp.watch(['src/*.html','src/templates/*.html'], ['moveHTML']);
+    gulp.watch(['src/*.html','src/templates/**/*.html'], ['moveHTML']);
 });
 
 //moveHTML
 gulp.task('moveHTML', function () {
-        gulp.src('src/*.html')
+    gulp.src('src/*.html')
         .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
 	gulp.src('src/templates/*.html')
 	.pipe(gulp.dest('dist/templates'))
+	.pipe(connect.reload());
+    gulp.src('src/templates/sa/*.html')
+	.pipe(gulp.dest('dist/templates/sa'))
 	.pipe(connect.reload());
 });
 
@@ -87,8 +90,11 @@ gulp.task('scripts', function () {
 	    kovalidation:'lib/knockout.validation.min',
             component: 'scripts/jquery.components',
             dropdown: 'lib/Materialize/dropdown',
+//            viewmodels
             application: 'viewModels/application',
             topics: 'viewModels/topics',
+            manageApp: 'viewModels/sa/manage.application',
+//            materialize deps
             sideNav: 'lib/Materialize/sideNav',
             velocity: 'lib/Materialize/velocity.min',
             jqueryEasing: 'lib/Materialize/jquery.easing.1.3',
@@ -97,7 +103,7 @@ gulp.task('scripts', function () {
         },
 	wrapShim:true,
         name: 'main',
-        include: ["application", "topics", "MaterializeDeps"],
+        include: ["application", "topics", "manageApp","MaterializeDeps"],
         out: 'dist/js/main-built.js',
         optimize: 'none'
 
