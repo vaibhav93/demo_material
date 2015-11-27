@@ -1,4 +1,4 @@
-define(['jquery', 'knockout', 'Materialize', 'pager', 'component', 'kovalidation'], function ($, ko, Materialize, pager) {
+define(['jquery', 'knockout', 'Materialize', 'pager', 'component', 'kovalidation','komapping'], function ($, ko, Materialize, pager) {
 
     //root viewModel. Applies to all pages of app
     var viewModel = {

@@ -25,7 +25,7 @@ gulp.task('server', function () {
 
 //jshint task
 gulp.task('jshint', function () {
-    return gulp.src(['src/js/scripts/*.js', 'src/js/*.js','src/js/viewModels/**/*.js'])
+    return gulp.src(['src/js/scripts/*.js', 'src/js/*.js', 'src/js/viewModels/**/*.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
@@ -46,7 +46,7 @@ gulp.task('minifyCSS', function () {
 
 //watchHTML
 gulp.task('watchHTML', function () {
-    gulp.watch(['src/*.html','src/templates/**/*.html'], ['moveHTML']);
+    gulp.watch(['src/*.html', 'src/templates/**/*.html'], ['moveHTML']);
 });
 
 //moveHTML
@@ -54,12 +54,12 @@ gulp.task('moveHTML', function () {
     gulp.src('src/*.html')
         .pipe(gulp.dest('dist/'))
         .pipe(connect.reload());
-	gulp.src('src/templates/*.html')
-	.pipe(gulp.dest('dist/templates'))
-	.pipe(connect.reload());
+    gulp.src('src/templates/*.html')
+        .pipe(gulp.dest('dist/templates'))
+        .pipe(connect.reload());
     gulp.src('src/templates/sa/*.html')
-	.pipe(gulp.dest('dist/templates/sa'))
-	.pipe(connect.reload());
+        .pipe(gulp.dest('dist/templates/sa'))
+        .pipe(connect.reload());
 });
 
 //watchIMG
@@ -81,29 +81,30 @@ gulp.task('scripts', function () {
         paths: {
             jquery: 'lib/jquery',
             knockout: 'lib/knockout-3.3.0',
+            komapping: 'lib/knockout.mapping',
             Materialize: 'empty:',
             app: 'app',
             hammerjs: 'empty:',
             jquerymock: 'lib/jquery.mockjax.min',
             jqueryHammer: 'lib/jquery.hammer',
             pager: 'lib/pager.min',
-	    kovalidation:'lib/knockout.validation.min',
+            kovalidation: 'lib/knockout.validation.min',
             component: 'scripts/jquery.components',
             dropdown: 'lib/Materialize/dropdown',
-//            viewmodels
+            //            viewmodels
             application: 'viewModels/application',
             topics: 'viewModels/topics',
             manageApp: 'viewModels/sa/manage.application',
-//            materialize deps
+            //            materialize deps
             sideNav: 'lib/Materialize/sideNav',
             velocity: 'lib/Materialize/velocity.min',
             jqueryEasing: 'lib/Materialize/jquery.easing.1.3',
             materialBox: 'lib/Materialize/materialbox',
-            MaterializeDeps: 'lib/Materialize.deps'           
+            MaterializeDeps: 'lib/Materialize.deps'
         },
-	wrapShim:true,
+        wrapShim: true,
         name: 'main',
-        include: ["application", "topics", "manageApp","MaterializeDeps"],
+        include: ["application", "topics", "manageApp", "MaterializeDeps"],
         out: 'dist/js/main-built.js',
         optimize: 'none'
 

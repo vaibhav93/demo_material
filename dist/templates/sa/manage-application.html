@@ -11,7 +11,48 @@
 <div class="container">
     <div class="row">
         <div class="col s12 m12 l12">
-            
+            <!--aplication info-->
+            <div class="row padding-top-10">
+                <div class="col s12 m6">
+                    <!-- status info-->
+                    <div class="row">
+                        <div class="col s6 m6">
+                            Status
+                        </div>
+                        <div class="col s6 m6">
+                            <div class="switch">
+                                <label>
+                                    Disabled
+                                    <input type="checkbox" data-bind="checked: app().status">
+                                    <span class="lever"></span>Enabled
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    application name-->
+                    <div class="row" style="padding-top:20px">
+                        <div class="col s12 m6 padding-top-10">
+                            Application name
+                        </div>
+                        <div class="input-field col s12 m4" style="margin:0">
+                            <input data-bind="textInput:app().name,enable:editNameFlag" id="disabled" type="text">
+
+                        </div>
+                        <div class="col s12 m2">
+                            <a href="javascript:void(0)" data-bind="click: editName,visible: !editNameFlag()">
+                                <i class="small mdi-content-create"></i>
+                            </a>
+                            <a href="javascript:void(0)" data-bind="click: saveName,visible: editNameFlag()">
+                                <i data-bind="visible: editNameFlag()" class="small mdi-action-done"></i>
+                            </a>
+                            <a href="javascript:void(0)" data-bind="click: resetName,visible: editNameFlag()">
+                                <i data-bind="visible: editNameFlag()" class="small mdi-content-clear"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
